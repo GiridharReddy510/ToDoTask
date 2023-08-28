@@ -1,0 +1,89 @@
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">             
+             
+              <div class="form-outline form-white mb-4">
+                <label class="form-label" for="typeTaskName">Task Name</label>
+                <input id="typeTaskName" class="form-control form-control-lg" [(ngModel)]="TaskName" placeholder="Enter Task Name"/>                
+              </div>
+              
+                <div class="form-outline form-white mb-4">
+                   <label class="form-label" for="TypeCreatedBy">Users</label>
+                   <select id="TypeCreatedBy" class="form-select" [(ngModel)]="CreatedBy">
+                    <option value=''>--Select User Name--</option> 
+                    <option *ngFor="let user of UsersList" [value]="user.UserName">{{user.UserName}}</option>
+                  </select>
+                </div>
+               
+                <div class="form-outline form-white mb-4">
+                <label class="form-label" for="TypeTaskPriority">Task Priority</label>
+                <select id="TypeTaskPriority" class="form-select" [(ngModel)]="TaskPriority">
+                   <option value='0'>--Select Priority--</option>                           
+                   <option *ngFor="let key of keys" [value]="key">{{PriorityList[key]}}</option>
+                </select>
+                </div>
+
+               <!-- Checkbox -->
+             <div class="form-check d-flex justify-content-center mb-4">
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="typeTaskStatus">Task Status</label>
+                <input class="form-check-input" type="checkbox" id="typeTaskStatus" [(ngModel)]="TaskStatus" checked>    
+              </div>
+             </div>
+
+              
+              <button (click)="addTask()" *ngIf="task.TaskId==0" class="btn btn-outline-light btn-lg px-5">Add</button>
+              <button (click)="updateTask()" *ngIf="task.TaskId!=0" class="btn btn-outline-light btn-lg px-5">Update</button>
+
+            </div>
+
+
+          </div>
+        </div>
+      
+    </div>
+
+
+
+<!-- <div class="form-froup row">
+
+  <label class="col-sm-2 col-form-label">Task Name</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" [(ngModel)]="TaskName"
+    placeholder="Enter Task Name">
+  </div>
+
+
+  <div class="form-check form-switch">
+    <label class="form-check-label" for="flexSwitchCheckChecked">Task Status</label>
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" [(ngModel)]="TaskStatus" checked>    
+  </div>
+
+  <label class="col-sm-2 col-form-label">Users</label>
+  <div class="col-sm-10">
+     <select class="form-select" [(ngModel)]="CreatedBy">
+         <option>--Select User Name--</option>
+         <option *ngFor="let user of UsersList">
+             {{user.UserName}}
+         </option>
+     </select>
+  </div>
+
+  <label class="col-sm-2 col-form-label">Task Priority</label>
+  <div class="col-sm-10">
+    <select class="form-select" [(ngModel)]="TaskPriority">
+        <option>--Select Priority--</option>        
+        <option *ngFor="let key of keys" [value]="key">{{PriorityList[key]}}</option>
+    </select>
+ </div>
+
+</div>
+
+
+<button (click)="addTask()" *ngIf="task.TaskId==0" class="btn btn-primary">
+  Add
+</button>
+<button (click)="updateTask()" *ngIf="task.TaskId!=0" class="btn btn-primary">
+  Update
+</button> -->

@@ -1,0 +1,17 @@
+<div class="form-froup row">
+
+  <label class="col-sm-2 col-form-label">User Name</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" [(ngModel)]="UserName"
+    placeholder="Enter User Name">
+  </div>
+</div>
+
+
+<button (click)="addTaskUser()" *ngIf="user.UserId==0" class="btn btn-primary">
+  Add
+</button>
+<button (click)="updateTaskUser()" *ngIf="user.UserId!=0" class="btn btn-primary">
+  Update
+</button>
+
